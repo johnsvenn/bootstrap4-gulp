@@ -33,7 +33,7 @@ gulp.task('default', ['watch']);
  */
 gulp.task('compile-css', ['cleanup-css'], function () {
 
-	gulp.src(paths.SOURCE + 'scss/*.scss')
+	gulp.src(paths.SOURCE + 'scss/**/*.scss')
     .pipe(plumber())
     .pipe(sass({
         includePaths: [
@@ -97,13 +97,13 @@ gulp.task('watch', function() {
     gulp.start('compile-css');
     gulp.start('compile-js');
 
-    gulp.watch(paths.SOURCE + 'scss/*.scss', ['compile-css']).on('change', function(event) {
+    gulp.watch(paths.SOURCE + 'scss/**/*.scss', ['compile-css']).on('change', function(event) {
     	
     	console.log(event.path + ' ' + event.type);
     	
     });
    
-    gulp.watch(paths.SOURCE + 'js/*.js', ['compile-js']).on('change', function(event) {
+    gulp.watch(paths.SOURCE + 'js/**/*.js', ['compile-js']).on('change', function(event) {
     	
         console.log(event.path + ' ' + event.type);
         
